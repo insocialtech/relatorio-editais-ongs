@@ -71,6 +71,7 @@ with st.form("filtros"):
 if gerar:
     dados = coletar_oportunidades()
     df = pd.DataFrame(dados)
+    st.write("📋 Resultado bruto da raspagem:", df.head())
     df["PrazoFormatado"] = pd.to_datetime(df["Prazo"], dayfirst=True, errors='coerce')
     df = df[df["Tema"].isin(temas)]
     df = df[df["País"].isin(paises)]
